@@ -24,8 +24,8 @@ class ProductsController extends SNSController
 
     public function sendSMS($number, $text_message) {
 
-        $sid        = "AC234d8310cc34877c447963f0529f89b4";
-        $token      = "285254bcbc39faf41cf6722f698281df";
+        $sid        = getenv('TWILIO_SID');
+        $token      = getenv('TWILIO_TOKEN');
         $twilio     = new Client($sid, $token);
         $message_body = json_encode($text_message);
 
